@@ -1,6 +1,11 @@
-const add = require('./add.js');
+// require('./batman');
+// require('./superman');
 
-console.log('Hello from Node JS');
+const SuperHero = require('./super-hero');
+const batman = new SuperHero('Batman')
+console.log(batman.getName());
+batman.setName('Bruce Wayne');
+console.log(batman.getName());
 
-const sum = add(1,2);
-console.log("sum = "+sum)
+const superman = new SuperHero('Superman');
+console.log(superman.getName());
