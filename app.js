@@ -41,16 +41,16 @@ console.log(path.resolve("folder1","", "images", "poster.jpg"));
 console.log(path.resolve("folder1","", "images", "poster.jpg"));
 console.log(path.resolve(__dirname, "poster.jpg")); */
 
-const callback = (name) => {
+/* const callback = (name) => {
     console.log(`Hello ${name}`);
 }
 
 const higherOrderFuction = (callback) => {
-    const name='Jilu';
+    const name = 'Jilu';
     callback(name);
 }
 
-higherOrderFuction(callback);
+higherOrderFuction(callback); */
 
 
 // const EventEmitter = require('node:events');
@@ -62,12 +62,41 @@ higherOrderFuction(callback);
 
 // emitter.emit("order-pizza","large", "mushroom");
 
-const PizzaShop = require('./pizza-shop');
-const pizzaShop = new PizzaShop();
+// const PizzaShop = require('./pizza-shop');
+// const pizzaShop = new PizzaShop();
 
-pizzaShop.on("order",(size, toppings) => {
-    console.log(`Order Received!!! Baking a ${size} pizza with ${toppings} toppings`)
+// pizzaShop.on("order",(size, toppings) => {
+//     console.log(`Order Received!!! Baking a ${size} pizza with ${toppings} toppings`)
+// })
+
+// pizzaShop.order("large", "mushroom");
+// pizzaShop.displayOrderNumber();
+
+const fs = require('node:fs');
+
+console.log("First");
+
+const fileContents = fs.readFileSync('./file.txt', "utf-8")
+console.log(fileContents);
+
+console.log("Second");
+
+fs.readFile("./file.txt", "utf-8", (error, data) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(data);
+    }
+});
+
+console.log("Third");
+
+fs.writeFileSync('./greet.txt', "Hello Bangalore!!!");
+
+fs.writeFile("./greet.txt", "  Greetings Everyone", {flag: 'a'},(error) => {
+    if (error) {
+        console.log(error)
+    } else {
+        console.log("File written");
+    }
 })
-
-pizzaShop.order("large", "mushroom");
-pizzaShop.displayOrderNumber();
