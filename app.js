@@ -72,7 +72,7 @@ higherOrderFuction(callback); */
 // pizzaShop.order("large", "mushroom");
 // pizzaShop.displayOrderNumber();
 
-const fs = require('node:fs');
+/* const fs = require('node:fs');
 
 console.log("First");
 
@@ -99,4 +99,14 @@ fs.writeFile("./greet.txt", "  Greetings Everyone", {flag: 'a'},(error) => {
     } else {
         console.log("File written");
     }
-})
+}) */
+
+const fs = require('node:fs/promises');
+
+console.log("First");
+
+fs.readFile('./file.txt', 'utf-8').
+    then((data) => console.log(data))
+    .catch((error) => console.log(error));
+
+console.log("Second");
